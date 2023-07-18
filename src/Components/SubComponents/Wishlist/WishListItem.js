@@ -18,7 +18,9 @@ const WishListItem = ({ wishlistItem }) => {
     dispatch(addToWishlist({prodId:id, Token:Token}));
     toast.success("Removed From Your Wishlist");
     setTimeout(() => {
-      dispatch(getWishlistOfUser({Token:Token}));
+      if(Token !== undefined){
+        dispatch(getWishlistOfUser({ Token: Token }));
+      }
     }, 100);
   }
   return (

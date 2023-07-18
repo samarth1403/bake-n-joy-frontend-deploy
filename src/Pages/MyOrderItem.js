@@ -8,7 +8,7 @@ const OrderSummaryItem = ({ orderedProduct }) => {
         background:
           "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C58AFF 0.02%, #E1C6FC 100%)",
       }}
-      className="min-[320px]:w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] rounded-[50px] p-2 pt-8 my-4"
+      className="min-[320px]:w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] rounded-[50px] p-2 pt-8 my-6"
     >
       <div className="w-[100%] flex flex-wrap sm:flex-row min-[320px]:flex-col sm:justify-between sm:items-center h-auto px-4">
         <p className="font-roboto font-bold text-[#0D103C] text-lg">

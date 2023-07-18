@@ -9,7 +9,7 @@ import PopularProductList from '../Components/SubComponents/PopularProducts/Popu
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOccasions } from '../features/occasions/occasionSlice';
 import { getAllprodCategories, getAllProducts } from "../features/product/productSlice";
-import { getCart } from "../features/user/userSlice";
+import { getCart, getWishlistOfUser } from "../features/user/userSlice";
 import HoriLine from "../Components/ReusableComponents/HoriLine";
 
 const HomePage = () => {
@@ -20,12 +20,15 @@ const HomePage = () => {
   const { occasions } = useSelector((state) => state.occasion);
 
     const [imgArray, setImgArray] = useState([]);
-  useEffect(() => {
+    useEffect(() => {
     dispatch(getAllOccasions())
     dispatch(getAllProducts())
     dispatch(getAllprodCategories())
+    
     if(Token !== undefined){
+      console.log(Token);
       dispatch(getCart({ Token: Token }));
+      dispatch(getWishlistOfUser({Token:Token}))
     }
   }, []);
 

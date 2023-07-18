@@ -24,21 +24,22 @@ const MyOrders = () => {
   });
   return (
     <div className="flex flex-col flex-wrap justify-center items-center">
-      <HoriLine />
       <div className="font-roboto font-bold text-4xl py-6 mb-8">
         {gotMyOrders?.length !== 0 ? (
-          <div className="text-[#fff]">My Orders</div>
+          <>
+            <div className="text-[#fff] text-center my-4">My Orders</div>
+            {renderedMyOrdersList}
+            <HoriLine />
+          </>
         ) : (
           <>
-            <div className="font-roboto text-center font-bold text-4xl p-6 mb-8 text-[#fff]">
+            <div className="font-roboto text-center font-bold text-3xl p-6 mb-8 text-[#fff]">
               You don't have any Orders
             </div>
             <EmptyCart />
           </>
         )}
       </div>
-      {renderedMyOrdersList}
-      <HoriLine />
     </div>
   );
 };

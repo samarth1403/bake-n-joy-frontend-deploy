@@ -16,7 +16,9 @@ const WishList = () => {
   }, []);
 
   const getWishlist = () => {
-    dispatch(getWishlistOfUser({ Token: Token }));
+    if(Token !== undefined){
+      dispatch(getWishlistOfUser({ Token: Token }));
+    }
   };
 
   const { gotWishlistOfUser } = useSelector((state) => {
