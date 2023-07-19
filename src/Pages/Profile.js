@@ -5,10 +5,11 @@ import * as Yup from "yup";
 import Input from '../Components/ReusableComponents/Input';
 import { useNavigate } from "react-router-dom";
 import { updateUserProfile } from '../features/user/userSlice';
+import Spinner from '../Components/ReusableComponents/Spinner';
 
 const Profile = () => {
     const dispatch = useDispatch();
-    const {user, Token} = useSelector((state)=>state.user)
+    const {user, Token , isLoading} = useSelector((state)=>state.user)
 
     let schema = Yup.object().shape({
       firstName: Yup.string().required("First Name is Required"),
@@ -107,19 +108,19 @@ const Profile = () => {
          ) : null}
        </div>
        <div className="flex flex-row flex-no-wrap justify-between items-center">
-         <button
+         {/* <button
            onClick={() => formik.resetForm()}
            style={{ boxShadow: "8px 8px 4px #0D103C" }}
            className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 mx-4 mt-4 mb-8"
          >
            Reset
-         </button>
+         </button> */}
          <button
            type="submit"
            style={{ boxShadow: "8px 8px 4px #0D103C" }}
            className="bg-[#fff] w-[100px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-8"
          >
-           Save
+           {isLoading ? <Spinner/> : "Save"}
          </button>
        </div>
      </form>
