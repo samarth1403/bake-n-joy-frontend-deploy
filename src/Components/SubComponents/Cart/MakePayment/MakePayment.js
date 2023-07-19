@@ -68,7 +68,6 @@ const MakePayment = () => {
         dispatch(resetCreateOrder());
       }, 1000);
     }
-    
   },[createdOrder])
 
   const displayRazorpay = async () => {
@@ -82,7 +81,7 @@ const MakePayment = () => {
     }
 
     const result = await axios.post(
-      "http://localhost:3001/api/user/order/checkout",
+      "https://bake-n-joy-server.onrender.com/api/user/order/checkout",
       { amount: totalCost },
       config
     );

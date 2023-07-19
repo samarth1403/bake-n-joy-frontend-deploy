@@ -13,14 +13,15 @@ const ShoppingItem = ({ shoppingItem }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const handleAddToWishlist = (prodId) => {
-     toast.success("Cake added to your Wishlist");
      if(Token !== undefined){
+      toast.success("Cake added to your Wishlist");
       dispatch(addToWishlist({ prodId: prodId, Token: Token }));
      }
      else{
       navigate("/sign-in-page");
      }
   }
+  
   const handleClick = (id) => {
     navigate(`/product-details/${shoppingItem._id}`);
     dispatch(getProduct(id));

@@ -9,12 +9,17 @@ import { ScrollToTop } from "../../ReusableComponents/ScrollToTop";
 import { toast } from "react-toastify";
 
 const PopularProduct = ({ shoppingItem }) => {
-    const { Token } = useSelector((state) => state.user);
+  const { Token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleAddToWishlist = (prodId) => {
-    toast.success("Cake added to your Wishlist");
-    dispatch(addToWishlist({ prodId: prodId, Token: Token }));
+    if(Token !== undefined){
+      dispatch(addToWishlist({ prodId: prodId, Token: Token }));
+       toast.success("Cake added to your Wishlist");
+    }
+    else{
+      navigate("/sign-in-page");
+    }
   };
   return (
     <div
