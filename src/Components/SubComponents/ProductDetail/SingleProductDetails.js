@@ -319,7 +319,7 @@ const SingleProductDetails = () => {
                   </div>
                 </div>
               )}
-              <p className="font-roboto font-bold  text-3xl mx-8 mt-6 ">
+              <p className="font-roboto font-bold text-[#fff] text-3xl mx-8 mt-6 ">
                 {`Price  :  Rs. ${gotProduct?.price * quantity * weight} /-`}
               </p>
             </>

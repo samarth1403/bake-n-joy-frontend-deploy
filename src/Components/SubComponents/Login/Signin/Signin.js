@@ -108,7 +108,7 @@ const Signin = () => {
                 style={{ boxShadow: "8px 8px 4px #0D103C" }}
                 className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold  text-[#0D103C] text-2xl rounded-[20px] px-4 mx-4 mt-4 mb-8"
               >
-                {isLoading === true ? <Spinner/> : "Login In"}
+                {isLoading === true ? <Spinner/> : "Log In"}
               </button>
             </div>
             <Link to="/forgot-password" onClick={() => ScrollToTop()}>
