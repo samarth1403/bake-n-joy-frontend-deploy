@@ -1,1 +1,1 @@
-export const base_url = "https://bake-n-joy-api.onrender.com/api";
+export const base_url = "https://bake-n-joy-server.onrender.com/api";
