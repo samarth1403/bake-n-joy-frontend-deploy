@@ -70,20 +70,22 @@ const SingleProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        body: {
-          productId: gotProduct?._id,
-          weight,
-          color,
-          quantity,
-          shape,
-          veg,
-          price: gotProduct?.price,
-        },
-        Token: Token,
-      })
-    );
+    if(Token !== undefined){
+      dispatch(
+        addToCart({
+          body: {
+            productId: gotProduct?._id,
+            weight,
+            color,
+            quantity,
+            shape,
+            veg,
+            price: gotProduct?.price,
+          },
+          Token: Token,
+        })
+      );
+    }
     
     setTimeout(()=>{
        ScrollToTop();

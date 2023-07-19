@@ -14,7 +14,9 @@ const ShoppingItem = ({ shoppingItem }) => {
   const dispatch = useDispatch()
   const handleAddToWishlist = (prodId) => {
      toast.success("Cake added to your Wishlist");
-     dispatch(addToWishlist({prodId:prodId,Token:Token}));
+     if(Token !== undefined){
+      dispatch(addToWishlist({ prodId: prodId, Token: Token }));
+     }
   }
   const handleClick = (id) => {
     navigate(`/product-details/${shoppingItem._id}`);
