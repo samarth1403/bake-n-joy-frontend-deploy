@@ -17,6 +17,9 @@ const ShoppingItem = ({ shoppingItem }) => {
      if(Token !== undefined){
       dispatch(addToWishlist({ prodId: prodId, Token: Token }));
      }
+     else{
+      navigate("/sign-in-page");
+     }
   }
   const handleClick = (id) => {
     navigate(`/product-details/${shoppingItem._id}`);

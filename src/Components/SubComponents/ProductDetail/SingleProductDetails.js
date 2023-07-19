@@ -70,7 +70,7 @@ const SingleProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    if(Token !== undefined){
+    if (Token !== undefined) {
       dispatch(
         addToCart({
           body: {
@@ -85,6 +85,8 @@ const SingleProductDetails = () => {
           Token: Token,
         })
       );
+    } else {
+      navigate("/sign-in-page");
     }
     
     setTimeout(()=>{
