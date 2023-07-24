@@ -16,6 +16,7 @@ const PopularProduct = ({ shoppingItem }) => {
     if(Token !== undefined){
       dispatch(addToWishlist({ prodId: prodId, Token: Token }));
        toast.success("Cake added to your Wishlist");
+       ScrollToTop();
     }
     else{
       navigate("/sign-in-page");
