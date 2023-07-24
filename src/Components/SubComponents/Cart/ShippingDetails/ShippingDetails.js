@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputWithBorder from "../../../ReusableComponents/InputWithBorder";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
@@ -8,9 +8,12 @@ import { useDispatch } from "react-redux";
 import { onShippingDetailsSubmit } from "../../../../features/order/orderSlice";
 import { ScrollToTop } from "../../../ReusableComponents/ScrollToTop";
 import HoriLine from "../../../ReusableComponents/HoriLine";
+import Spinner from "../../../ReusableComponents/Spinner";
 
 const ShippingDetails = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
   let schema = Yup.object().shape({
     address: Yup.string().required("Address is Required"),
@@ -30,6 +33,10 @@ const ShippingDetails = () => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
+       setIsLoading(true);
+       setTimeout(() => {
+         setIsLoading(false);
+       }, 2000);
       dispatch(onShippingDetailsSubmit(values))
       navigate("/cart-page/make-payment");
       ScrollToTop();
@@ -41,107 +48,115 @@ const ShippingDetails = () => {
         <p className="text-[#fff] font-roboto font-bold text-3xl p-8">
           2. Shipping Details
         </p>
-        <form
-          onSubmit={formik.handleSubmit}
-          style={{
-            background:
-              "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C898F8 0.02%, #8A16FD 100%)",
-          }}
-          className="min-[320px]:w-[300px] sm:w-[600px] rounded-[25px] pt-6 flex flex-col flex-no-wrap justify-center items-center"
-        >
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="address"
-            type="text"
-            placeholder="Flat, Floor, Building Name / House Name, Area, Station, etc *"
-            name="address"
-            value={formik.values.address}
-            onChange={formik.handleChange("address")}
-            onBlur={formik.handleBlur("address")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.address && formik.errors.address ? (
-              <div>{formik.errors.address}</div>
-            ) : null}
+        {isLoading && (
+          <div className="flex justify-center my-12">
+            <Spinner />
           </div>
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="landmark"
-            type="text"
-            placeholder="Area Name, Landmark, etc (optional)"
-            name="landmark"
-            value={formik.values.landmark}
-            onChange={formik.handleChange("landmark")}
-            onBlur={formik.handleBlur("landmark")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.landmark && formik.errors.landmark ? (
-              <div>{formik.errors.landmark}</div>
-            ) : null}
-          </div>
+        )}
 
-          <div className="flex flex-row flex-wrap justify-center items-center">
-            <div className="felx flex-col justify-center items-center">
-              <InputWithBorder
-                className="w-[135px] lg:w-[145px] h-[75px]"
-                id="pincode"
-                type="number"
-                placeholder="Pincode"
-                name="pincode"
-                value={formik.values.pincode}
-                onChange={formik.handleChange("pincode")}
-                onBlur={formik.handleBlur("pincode")}
-              />
-              <div className="text-black font-bold text-lg">
-                {formik.touched.pincode && formik.errors.pincode ? (
-                  <div>{formik.errors.pincode}</div>
-                ) : null}
-              </div>
-            </div>
-            <div className="felx flex-col justify-center items-center">
-              <InputWithBorder
-                className="w-[135px] lg:w-[145px] h-[75px]"
-                id="city"
-                type="text"
-                placeholder="City"
-                name="city"
-                value={formik.values.city}
-                onChange={formik.handleChange("city")}
-                onBlur={formik.handleBlur("city")}
-              />
-              <div className="text-black font-bold text-lg">
-                {formik.touched.city && formik.errors.city ? (
-                  <div>{formik.errors.city}</div>
-                ) : null}
-              </div>
-            </div>
-            <div className="felx flex-col justify-center items-center">
-              <InputWithBorder
-                className="min-[320px]:w-[260px] lg:w-[145px] h-[75px]"
-                id="state"
-                type="text"
-                placeholder="State"
-                name="state"
-                value={formik.values.state}
-                onChange={formik.handleChange("state")}
-                onBlur={formik.handleBlur("state")}
-              />
-              <div className="text-black font-bold text-lg">
-                {formik.touched.state && formik.errors.state ? (
-                  <div>{formik.errors.state}</div>
-                ) : null}
-              </div>
-            </div>
-          </div>
-          <button
-            type="submit"
-            className="bg-[#84FF58] min-[320px]:w-[260px] sm:w-[300px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+        {!isLoading && (
+          <form
+            onSubmit={formik.handleSubmit}
+            style={{
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C898F8 0.02%, #8A16FD 100%)",
+            }}
+            className="min-[320px]:w-[300px] sm:w-[600px] rounded-[25px] pt-6 flex flex-col flex-no-wrap justify-center items-center"
           >
-            Proceed to Pay
-          </button>
-        </form>
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="address"
+              type="text"
+              placeholder="Flat, Floor, Building Name / House Name, Area, Station, etc *"
+              name="address"
+              value={formik.values.address}
+              onChange={formik.handleChange("address")}
+              onBlur={formik.handleBlur("address")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.address && formik.errors.address ? (
+                <div>{formik.errors.address}</div>
+              ) : null}
+            </div>
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="landmark"
+              type="text"
+              placeholder="Area Name, Landmark, etc (optional)"
+              name="landmark"
+              value={formik.values.landmark}
+              onChange={formik.handleChange("landmark")}
+              onBlur={formik.handleBlur("landmark")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.landmark && formik.errors.landmark ? (
+                <div>{formik.errors.landmark}</div>
+              ) : null}
+            </div>
+
+            <div className="flex flex-row flex-wrap justify-center items-center">
+              <div className="felx flex-col justify-center items-center">
+                <InputWithBorder
+                  className="w-[135px] lg:w-[145px] h-[75px]"
+                  id="pincode"
+                  type="number"
+                  placeholder="Pincode"
+                  name="pincode"
+                  value={formik.values.pincode}
+                  onChange={formik.handleChange("pincode")}
+                  onBlur={formik.handleBlur("pincode")}
+                />
+                <div className="text-black font-bold text-lg">
+                  {formik.touched.pincode && formik.errors.pincode ? (
+                    <div>{formik.errors.pincode}</div>
+                  ) : null}
+                </div>
+              </div>
+              <div className="felx flex-col justify-center items-center">
+                <InputWithBorder
+                  className="w-[135px] lg:w-[145px] h-[75px]"
+                  id="city"
+                  type="text"
+                  placeholder="City"
+                  name="city"
+                  value={formik.values.city}
+                  onChange={formik.handleChange("city")}
+                  onBlur={formik.handleBlur("city")}
+                />
+                <div className="text-black font-bold text-lg">
+                  {formik.touched.city && formik.errors.city ? (
+                    <div>{formik.errors.city}</div>
+                  ) : null}
+                </div>
+              </div>
+              <div className="felx flex-col justify-center items-center">
+                <InputWithBorder
+                  className="min-[320px]:w-[260px] lg:w-[145px] h-[75px]"
+                  id="state"
+                  type="text"
+                  placeholder="State"
+                  name="state"
+                  value={formik.values.state}
+                  onChange={formik.handleChange("state")}
+                  onBlur={formik.handleBlur("state")}
+                />
+                <div className="text-black font-bold text-lg">
+                  {formik.touched.state && formik.errors.state ? (
+                    <div>{formik.errors.state}</div>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="bg-[#84FF58] min-[320px]:w-[260px] sm:w-[300px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+            >
+              Proceed to Pay
+            </button>
+          </form>
+        )}
       </div>
-      <HoriLine/>
+      <HoriLine />
     </div>
   );
 };

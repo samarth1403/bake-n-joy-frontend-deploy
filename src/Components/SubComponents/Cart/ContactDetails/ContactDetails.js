@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputWithBorder from '../../../ReusableComponents/InputWithBorder'
 import {Link} from 'react-router-dom';
 import { useFormik } from "formik";
@@ -8,9 +8,11 @@ import { useDispatch } from 'react-redux';
 import { onContactDetailsSubmit } from '../../../../features/order/orderSlice';
 import { ScrollToTop } from '../../../ReusableComponents/ScrollToTop';
 import HoriLine from '../../../ReusableComponents/HoriLine';
+import Spinner from '../../../ReusableComponents/Spinner';
 
 const ContactDetails = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [isLoading , setIsLoading] = useState(false);
     const navigate = useNavigate();
   let schema = Yup.object().shape({
     firstName: Yup.string().required("First Name is Required"),
@@ -30,6 +32,10 @@ const ContactDetails = () => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
+      setIsLoading(true);
+      setTimeout(()=>{
+       setIsLoading(false);
+      },2000)
       dispatch(onContactDetailsSubmit(values))
       navigate("/cart-page/shipping-details")
       ScrollToTop();
@@ -41,84 +47,92 @@ const ContactDetails = () => {
         <p className="text-[#fff] font-roboto font-bold text-3xl p-8">
           1. Contact Details
         </p>
-        <form
-          onSubmit={formik.handleSubmit}
-          style={{
-            background:
-              "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C898F8 0.02%, #8A16FD 100%)",
-          }}
-          className="min-[320px]:w-[300px] sm:w-[400px] lg:w-[600px] rounded-[25px] pt-6 flex flex-col flex-no-wrap justify-center items-center"
-        >
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="firstName"
-            type="text"
-            placeholder="First Name"
-            name="firstName"
-            value={formik.values.firstName}
-            onChange={formik.handleChange("firstName")}
-            onBlur={formik.handleBlur("firstName")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.firstName && formik.errors.firstName ? (
-              <div>{formik.errors.firstName}</div>
-            ) : null}
+        {isLoading && (
+          <div className="flex justify-center my-12">
+            <Spinner />
           </div>
+        )}
 
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="lastName"
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            value={formik.values.lastName}
-            onChange={formik.handleChange("lastName")}
-            onBlur={formik.handleBlur("lastName")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.lastName && formik.errors.lastName ? (
-              <div>{formik.errors.lastName}</div>
-            ) : null}
-          </div>
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="email"
-            type="text"
-            placeholder="Email"
-            name="email"
-            value={formik.values.email}
-            onChange={formik.handleChange("email")}
-            onBlur={formik.handleBlur("email")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
-          </div>
-          <InputWithBorder
-            className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
-            id="mobile"
-            type="number"
-            placeholder="Phone Number"
-            name="mobile"
-            value={formik.values.mobile}
-            onChange={formik.handleChange("mobile")}
-            onBlur={formik.handleBlur("mobile")}
-          />
-          <div className="text-black font-bold text-lg">
-            {formik.touched.mobile && formik.errors.mobile ? (
-              <div>{formik.errors.mobile}</div>
-            ) : null}
-          </div>
-          <button
-            type="submit"
-            className="bg-[#84FF58] w-[260px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+        {!isLoading && (
+          <form
+            onSubmit={formik.handleSubmit}
+            style={{
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C898F8 0.02%, #8A16FD 100%)",
+            }}
+            className="min-[320px]:w-[300px] sm:w-[400px] lg:w-[600px] rounded-[25px] pt-6 flex flex-col flex-no-wrap justify-center items-center"
           >
-            Continue
-          </button>
-        </form>
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="firstName"
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+              value={formik.values.firstName}
+              onChange={formik.handleChange("firstName")}
+              onBlur={formik.handleBlur("firstName")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <div>{formik.errors.firstName}</div>
+              ) : null}
+            </div>
+
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="lastName"
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              value={formik.values.lastName}
+              onChange={formik.handleChange("lastName")}
+              onBlur={formik.handleBlur("lastName")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.lastName && formik.errors.lastName ? (
+                <div>{formik.errors.lastName}</div>
+              ) : null}
+            </div>
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="email"
+              type="text"
+              placeholder="Email"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange("email")}
+              onBlur={formik.handleBlur("email")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.email && formik.errors.email ? (
+                <div>{formik.errors.email}</div>
+              ) : null}
+            </div>
+            <InputWithBorder
+              className="min-[320px]:w-[260px] sm:w-[300px] lg:w-[500px] h-[75px]"
+              id="mobile"
+              type="number"
+              placeholder="Phone Number"
+              name="mobile"
+              value={formik.values.mobile}
+              onChange={formik.handleChange("mobile")}
+              onBlur={formik.handleBlur("mobile")}
+            />
+            <div className="text-black font-bold text-lg">
+              {formik.touched.mobile && formik.errors.mobile ? (
+                <div>{formik.errors.mobile}</div>
+              ) : null}
+            </div>
+            <button
+              type="submit"
+              className="bg-[#84FF58] w-[260px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+            >
+              Continue
+            </button>
+          </form>
+        )}
       </div>
-      <HoriLine/>
+      <HoriLine />
     </div>
   );
 }

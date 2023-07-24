@@ -17,7 +17,6 @@ const ProductDetail = () => {
         You may also Like
       </p>
       <ShoppingList />
-      <HoriLine/>
       <Reviews />
     </div>
   );

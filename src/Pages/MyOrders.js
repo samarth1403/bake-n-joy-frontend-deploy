@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMyOrders } from "../features/user/userSlice";
 import EmptyCart from "../Components/SubComponents/Cart/EmptyCart/EmptyCart";
 import HoriLine from "../Components/ReusableComponents/HoriLine";
+import Spinner from "../Components/ReusableComponents/Spinner";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const MyOrders = () => {
     dispatch(getMyOrders({ Token: Token }));
   }, []);
 
-  const { gotMyOrders } = useSelector((state) => {
+  const { gotMyOrders , isLoading } = useSelector((state) => {
     return state.user;
   });
 
@@ -24,11 +25,17 @@ const MyOrders = () => {
   });
   return (
     <div className="flex flex-col flex-wrap justify-center items-center">
-      <div className="font-roboto font-bold text-4xl py-6 mb-8">
+      <div className="font-roboto font-bold text-4xl mb-2">
         {gotMyOrders?.length !== 0 ? (
           <>
-            <div className="text-[#fff] text-center my-4">My Orders</div>
-            {renderedMyOrdersList}
+            <div className="text-[#fff] text-center mt-4 mb-8">My Orders</div>
+            {isLoading ? (
+              <div className="flex justify-center my-12">
+                <Spinner />
+              </div>
+            ) : (
+              <div>{renderedMyOrdersList}</div>
+            )}
             <HoriLine />
           </>
         ) : (

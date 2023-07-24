@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import DoneIcon from '../../../../images/DoneIcon.svg';
+import HoriLine from '../../../ReusableComponents/HoriLine';
 const Congratulation = () => {
 
   const {user} = useSelector((state)=>state.user)
@@ -20,6 +21,7 @@ const Congratulation = () => {
           </p>
         </div>
       </div>
+      <HoriLine/>
     </div>
   );
 }

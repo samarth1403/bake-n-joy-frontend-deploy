@@ -7,10 +7,11 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.development";
 import { ScrollToTop } from '../../ReusableComponents/ScrollToTop';
+import Spinner from '../../ReusableComponents/Spinner';
 
 const CakeMarquee = () => {
 
-   const {products} = useSelector((state)=>{
+   const {products , isLoading} = useSelector((state)=>{
     return state.product
    })
 
@@ -35,19 +36,25 @@ const CakeMarquee = () => {
       <p className="leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] min-[320px]:text-3xl sm:text-4xl ">
         Our Specials
       </p>
-      <div className="flex flex-col flex-no-wrap justify-center items-center">
-        <div className="w-[320px] sm:w-[500px] md:w-[900px] lg:w-[1150px] my-6">
-          <Marquee
-            autoFill
-            pauseOnHover
-            gradient
-            gradientColor={[13, 16, 60]}
-            gradientWidth={100}
-          >
-            {renderedCakeImagesList}
-          </Marquee>
+      {isLoading ? (
+        <div className="flex justify-center my-12">
+          <Spinner />
         </div>
-      </div>
+      ) : (
+        <div className="flex flex-col flex-no-wrap justify-center items-center">
+          <div className="w-[320px] sm:w-[500px] md:w-[900px] lg:w-[1150px] my-6">
+            <Marquee
+              autoFill
+              pauseOnHover
+              gradient
+              gradientColor={[13, 16, 60]}
+              gradientWidth={100}
+            >
+              {renderedCakeImagesList}
+            </Marquee>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import Spinner from '../../ReusableComponents/Spinner';
 import CakeTypesList from './CakeTypes/CakeTypesList';
 import OccasionList from './Occasions/OccasionList';
 
 const Hero = ({images}) => {
+
+   const {isLoading} = useSelector((state)=>state.product);
   
     return (
       <>
@@ -11,7 +15,13 @@ const Hero = ({images}) => {
             " Let our cakes be the icing on the cake of your happiness. "
           </p>
         </div>
-        <OccasionList images={images} />
+        {isLoading ? (
+          <div className="flex justify-center my-6">
+            <Spinner />
+          </div>
+        ) : (
+          <OccasionList images={images} />
+        )}
         {/* <CakeTypesList /> */}
       </>
     );

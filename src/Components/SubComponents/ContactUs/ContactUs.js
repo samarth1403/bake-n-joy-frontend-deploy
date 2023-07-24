@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../../ReusableComponents/Input';
 import { MdLocationOn } from "react-icons/md";
 import {BsFillTelephoneFill} from "react-icons/bs";
@@ -9,9 +9,12 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { createEnquiry, resetContactState } from '../../../features/contact/contactSlice';
 import HoriLine from '../../ReusableComponents/HoriLine';
+import Spinner from '../../ReusableComponents/Spinner';
 
 const ContactUs = () => {
   const dispatch = useDispatch();
+  const [isLoading , setIsLoading] = useState(false);
+  const [isMapLoading , setIsMapLoading] = useState(true);
 
   let schema = Yup.object().shape({
     name: Yup.string().required("Name is Required"),
@@ -31,24 +34,40 @@ const ContactUs = () => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
+      setIsLoading(true);
       dispatch(createEnquiry(values));
       formik.resetForm();
       setTimeout(() => {
         dispatch(resetContactState());
       }, 200);
+      setTimeout(()=>{
+         setIsLoading(false);
+      },2000)
     },
   });
+
+  useEffect(()=>{
+    setIsMapLoading(()=>{
+      setIsMapLoading(false);
+    },3000)
+  },[])
   
   return (
     <div className="flex flex-col flex-no-wrap justify-center items-center">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121656.25694454425!2d75.83621473255504!3d17.661615749898672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d082b54ac5d5%3A0x3c719de6c83710d0!2sSolapur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1686163072031!5m2!1sen!2sin"
-        className="border-0 min-[320px]:w-[260px] h-[260px] sm:w-[400px] sm:h-[300px] md:w-[600px] md:h-[450px] lg:w-[800px] lg:h-[450px]"
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title="Location"
-      ></iframe>
+      {isMapLoading ? (
+        <div className="flex justify-center my-12">
+          <Spinner />
+        </div>
+      ) : (
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121656.25694454425!2d75.83621473255504!3d17.661615749898672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d082b54ac5d5%3A0x3c719de6c83710d0!2sSolapur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1686163072031!5m2!1sen!2sin"
+          className="border-0 min-[320px]:w-[260px] h-[260px] sm:w-[400px] sm:h-[300px] md:w-[600px] md:h-[450px] lg:w-[800px] lg:h-[450px]"
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Location"
+        ></iframe>
+      )}
       <HoriLine />
       <div className="min-[320px]:w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] flex flex-row flex-wrap justify-center sm:justify-between sm:items-start">
         <div className="flex flex-col flex-no-wrap justify-center items-center">
@@ -56,82 +75,88 @@ const ContactUs = () => {
             Contact Us
           </p>
 
-          <form
-            onSubmit={formik.handleSubmit}
-            style={{
-              background: "linear-gradient(180deg, #FFD976 0%, #FF6464 100%)",
-            }}
-            className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[280px] sm:w-[360px] lg:w-[450px] rounded-[30px] p-8"
-          >
-            <Input
-              className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
-              id="name"
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={formik.values.name}
-              onChange={formik.handleChange("name")}
-              onBlur={formik.handleBlur("name")}
-            />
-            <div className="text-black font-bold text-lg">
-              {formik.touched.name && formik.errors.name ? (
-                <div>{formik.errors.name}</div>
-              ) : null}
+          {isLoading ? (
+            <div className="flex justify-center items-center my-12">
+              <Spinner />
             </div>
-            <Input
-              className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
-              id="email"
-              type="text"
-              placeholder="Email"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange("email")}
-              onBlur={formik.handleBlur("email")}
-            />
-            <div className="text-black font-bold text-lg">
-              {formik.touched.email && formik.errors.email ? (
-                <div>{formik.errors.email}</div>
-              ) : null}
-            </div>
-            <Input
-              className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
-              id="mobile"
-              type="number"
-              placeholder="Phone Number"
-              name="mobile"
-              value={formik.values.mobile}
-              onChange={formik.handleChange("mobile")}
-              onBlur={formik.handleBlur("mobile")}
-            />
-            <div className="text-black font-bold text-lg">
-              {formik.touched.mobile && formik.errors.mobile ? (
-                <div>{formik.errors.mobile}</div>
-              ) : null}
-            </div>
-            <textarea
-              className="font-roboto font-[400] text-xl rounded-[15px] bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#fff]
-            text-start p-4 m-4"
-              id="comment"
-              type="text"
-              placeholder="Comment"
-              name="comment"
-              value={formik.values.comment}
-              onChange={formik.handleChange("comment")}
-              onBlur={formik.handleBlur("comment")}
-            />
-            <div className="text-black font-bold text-lg">
-              {formik.touched.comment && formik.errors.comment ? (
-                <div>{formik.errors.comment}</div>
-              ) : null}
-            </div>
-            <button
-              type="submit"
-              style={{ boxShadow: "8px 8px 4px #0D103C" }}
-              className="bg-[#fff] w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 mx-4 mt-4 mb-8 align-left"
+          ) : (
+            <form
+              onSubmit={formik.handleSubmit}
+              style={{
+                background: "linear-gradient(180deg, #FFD976 0%, #FF6464 100%)",
+              }}
+              className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[280px] sm:w-[360px] lg:w-[450px] rounded-[30px] p-8"
             >
-              Send
-            </button>
-          </form>
+              <Input
+                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+                id="name"
+                type="text"
+                placeholder="Name"
+                name="name"
+                value={formik.values.name}
+                onChange={formik.handleChange("name")}
+                onBlur={formik.handleBlur("name")}
+              />
+              <div className="text-black font-bold text-lg">
+                {formik.touched.name && formik.errors.name ? (
+                  <div>{formik.errors.name}</div>
+                ) : null}
+              </div>
+              <Input
+                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+                id="email"
+                type="text"
+                placeholder="Email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange("email")}
+                onBlur={formik.handleBlur("email")}
+              />
+              <div className="text-black font-bold text-lg">
+                {formik.touched.email && formik.errors.email ? (
+                  <div>{formik.errors.email}</div>
+                ) : null}
+              </div>
+              <Input
+                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
+                id="mobile"
+                type="number"
+                placeholder="Phone Number"
+                name="mobile"
+                value={formik.values.mobile}
+                onChange={formik.handleChange("mobile")}
+                onBlur={formik.handleBlur("mobile")}
+              />
+              <div className="text-black font-bold text-lg">
+                {formik.touched.mobile && formik.errors.mobile ? (
+                  <div>{formik.errors.mobile}</div>
+                ) : null}
+              </div>
+              <textarea
+                className="font-roboto font-[400] text-xl rounded-[15px] bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#fff]
+            text-start p-4 m-4"
+                id="comment"
+                type="text"
+                placeholder="Comment"
+                name="comment"
+                value={formik.values.comment}
+                onChange={formik.handleChange("comment")}
+                onBlur={formik.handleBlur("comment")}
+              />
+              <div className="text-black font-bold text-lg">
+                {formik.touched.comment && formik.errors.comment ? (
+                  <div>{formik.errors.comment}</div>
+                ) : null}
+              </div>
+              <button
+                type="submit"
+                style={{ boxShadow: "8px 8px 4px #0D103C" }}
+                className="bg-[#fff] w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 mx-4 mt-4 mb-8 align-left"
+              >
+                Send
+              </button>
+            </form>
+          )}
         </div>
         <div className="flex flex-col flex-no-wrap justify-center items-center">
           <p className="font-roboto font-bold text-[#fff] text-2xl mx-2 my-8">

@@ -4,6 +4,7 @@ import OrderSummaryItem from './OrderSummaryItem';
 import OrderSummaryTotal from './OrderSummaryTotal';
 import { useDispatch, useSelector } from "react-redux";
 import { getCart } from "../../../../features/user/userSlice";
+import Spinner from '../../../ReusableComponents/Spinner';
 
 const OrderSummaryList = () => {
   
@@ -22,7 +23,7 @@ const OrderSummaryList = () => {
      }
   };
 
-  const {gotCart} = useSelector((state)=>{
+  const {gotCart , isLoading} = useSelector((state)=>{
     return state.user
   })
 
@@ -43,8 +44,15 @@ const OrderSummaryList = () => {
       <p className="font-roboto font-bold text-[#fff] text-4xl m-6 mb-8">
         Order Summary
       </p>
-      {renderedOrderSummaryList}
-      {gotCart?.length !== 0 ?  <OrderSummaryTotal /> : "" }
+      {
+        isLoading && <div className='flex justify-center my-8'><Spinner/></div>
+      }
+      {!isLoading && (
+        <>
+          {renderedOrderSummaryList}
+          {gotCart?.length !== 0 ? <OrderSummaryTotal /> : ""}
+        </>
+      )}
     </div>
   );
 }

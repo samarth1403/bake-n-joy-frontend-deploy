@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EmptyCartIcon from "../../../../images/EmptyCartIcon.svg";
+import HoriLine from "../../../ReusableComponents/HoriLine";
 import { ScrollToTop } from "../../../ReusableComponents/ScrollToTop";
 
 const EmptyCart = () => {
@@ -23,6 +24,7 @@ const EmptyCart = () => {
           Browse Sweets
         </button>
       </Link>
+      <HoriLine/>
     </div>
   );
 };

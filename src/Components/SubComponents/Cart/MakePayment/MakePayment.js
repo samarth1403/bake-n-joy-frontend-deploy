@@ -14,15 +14,18 @@ import { loadScript } from "../../../../utils/loadScript";
 import logo from '../../../../images/DoneIcon.svg'
 import { ScrollToTop } from "../../../ReusableComponents/ScrollToTop";
 import HoriLine from "../../../ReusableComponents/HoriLine";
+import Spinner from "../../../ReusableComponents/Spinner";
 
 const MakePayment = () => {
   const [totalCost, setTotalCost] = useState();
   const [orderedProducts, setOrderedProducts] = useState();
+  const [isLoadingRazorpay , setIsLoadingRazorpay ] = useState(false);
   const navigate = useNavigate()
 
-  const { contactInfo, shippingInfo, totalPrice } = useSelector((state) => {
+  const { contactInfo, shippingInfo, totalPrice , isLoading} = useSelector((state) => {
     return state.order;
   });
+
 
   const { gotCart, paymentInfo, res, createdOrder, Token } = useSelector(
     (state) => {
@@ -36,7 +39,6 @@ const MakePayment = () => {
     }
   }, []);
 
-  
 
   useEffect(() => {
     let totalPrice = 0;
@@ -58,9 +60,10 @@ const MakePayment = () => {
     setTotalCost(totalPrice);
     setOrderedProducts(items);
   }, [gotCart]);
- console.log(createdOrder);
+
   useEffect(()=>{
     if(createdOrder && res.success){
+      setIsLoadingRazorpay(false);
       dispatch(emptyCart({Token:Token}));
       navigate("/cart-page/congratulation");
       ScrollToTop();
@@ -145,6 +148,15 @@ const MakePayment = () => {
     
   };
 
+  const handleClick = () => {
+    ScrollToTop();
+    setTimeout(()=>{
+       setIsLoadingRazorpay(true);
+    },300);
+    console.log(isLoadingRazorpay);
+    displayRazorpay();
+  }
+
   const renderedOrderSummaryList = gotCart?.map((item,index) => {
     return (
       <div className="mb-6" key={index}>
@@ -180,43 +192,50 @@ const MakePayment = () => {
       </div>
     );
   });
+
+ 
   return (
     <>
       <div className="flex flex-row flex-wrap justify-center items-center">
-        <div
-          style={{
-            background:
-              "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C58AFF 0.02%, #E1C6FC 100%)",
-          }}
-          className="min-[320px]:w-[260px] sm:w-[500px] md:w-[600px] rounded-[50px] p-4 p-6"
-        >
-          <p className="font-roboto font-bold text-[#0D103C] text-3xl text-left p-6">
-            Order Summary
-          </p>
-          {renderedOrderSummaryList}
-          <div className="flex flex-col flex-no-wrap justify-center items-center mx-4 p-4">
-            <p className="font-roboto font-bold text-[#0D103C] text-xl text-center m-4 ">
-              -----------------------------------------------------------------------
+        {
+          isLoadingRazorpay && <div className="flex justify-center my-8"><Spinner/></div>
+        }
+        {!isLoadingRazorpay && (
+          <div
+            style={{
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C58AFF 0.02%, #E1C6FC 100%)",
+            }}
+            className="min-[320px]:w-[260px] sm:w-[500px] md:w-[600px] rounded-[50px] p-4 p-6"
+          >
+            <p className="font-roboto font-bold text-[#0D103C] text-3xl text-left p-6">
+              Order Summary
             </p>
-            <div className="flex flex-row flex-no-wrap justify-center items-center">
-              <p className="font-roboto font-bold text-[#0D103C] text-3xl mr-16 sm:mr-24 m-2 ">
-                Total Cost
+            {renderedOrderSummaryList}
+            <div className="flex flex-col flex-no-wrap justify-center items-center mx-4 p-4">
+              <p className="font-roboto font-bold text-[#0D103C] text-xl text-center m-4 ">
+                -----------------------------------------------------------------------
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-3xl ml-16 sm:ml-24 m-2">
-                Rs {totalCost} /-
-              </p>
+              <div className="flex flex-row flex-no-wrap justify-center items-center">
+                <p className="font-roboto font-bold text-[#0D103C] text-3xl mr-16 sm:mr-24 m-2 ">
+                  Total Cost
+                </p>
+                <p className="font-roboto font-bold text-[#0D103C] text-3xl ml-16 sm:ml-24 m-2">
+                  Rs {totalCost} /-
+                </p>
+              </div>
+              <button
+                onClick={handleClick}
+                className="bg-[#84FF58] min-[320px]:w-[240px] sm:w-[300px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+              >
+                Proceed to Pay
+              </button>
+              <Link to="/cart-page/congratulation"></Link>
             </div>
-            <button
-              onClick={displayRazorpay}
-              className="bg-[#84FF58] min-[320px]:w-[240px] sm:w-[300px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
-            >
-              Proceed to Pay
-            </button>
-            <Link to="/cart-page/congratulation"></Link>
           </div>
-        </div>
+        )}
       </div>
-      <HoriLine/>
+      <HoriLine />
     </>
   );
 };

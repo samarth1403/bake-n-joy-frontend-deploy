@@ -7,10 +7,11 @@ import ShoppingItem from "../Shopping/ShoppingItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../../features/product/productSlice";
 import PopularProduct from "./PopularProduct";
+import Spinner from "../../ReusableComponents/Spinner";
 
 const PopularProductList = () => {
 
-  const { products } = useSelector((state) => {
+  const { products , isLoading} = useSelector((state) => {
     return state.product;
   });
 
@@ -19,18 +20,24 @@ const PopularProductList = () => {
       <p className="leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] min-[320px]:text-3xl sm:text-4xl ">
         Our Popular Products
       </p>
-      <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center min-[320px]:px-2 sm:px-16 pt-16">
-        {products?.map((shoppingItem, index) => {
-          return (
-            shoppingItem.tags === "popular" && (
-              <PopularProduct
-                key={shoppingItem?._id}
-                shoppingItem={shoppingItem}
-              />
-            )
-          );
-        })}
-      </div>
+      {isLoading ? (
+        <div className="flex justify-center my-12">
+          <Spinner />
+        </div>
+      ) : (
+        <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center min-[320px]:px-2 sm:px-16 pt-16">
+          {products?.map((shoppingItem, index) => {
+            return (
+              shoppingItem.tags === "popular" && (
+                <PopularProduct
+                  key={shoppingItem?._id}
+                  shoppingItem={shoppingItem}
+                />
+              )
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

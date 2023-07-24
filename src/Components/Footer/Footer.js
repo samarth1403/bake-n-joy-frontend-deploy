@@ -6,8 +6,10 @@ import PinterestW from "../../images/PinterestW.svg";
 import YoutubeW from "../../images/YoutubeW.svg";
 import { Link } from "react-router-dom";
 import { ScrollToTop } from "../ReusableComponents/ScrollToTop";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const {user} = useSelector((state)=>state.user);
   const renderedShoppingItemCakeList = shoppingItemCakeList.map(
     (shoppingItemCakeItem , index) => {
       return (
@@ -141,7 +143,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <FooterSignup />
+          {user === null && <FooterSignup/>}
         </div>
         <div className="flex flex-col flex-no-wrap justify-center items-start w-[260px]">
           <p className="font-roboto font-bold text-[#FFE04E] text-2xl p-4">

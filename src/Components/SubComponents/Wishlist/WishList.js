@@ -6,6 +6,8 @@ import Cake from "../../../images/cake.jpeg";
 import WishListItem from "./WishListItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getWishlistOfUser } from "../../../features/user/userSlice";
+import Spinner from "../../ReusableComponents/Spinner";
+import HoriLine from "../../ReusableComponents/HoriLine";
 
 const WishList = () => {
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ const WishList = () => {
     }
   };
 
-  const { gotWishlistOfUser } = useSelector((state) => {
+  const { gotWishlistOfUser , isLoading} = useSelector((state) => {
     return state.user;
   });
 
@@ -41,9 +43,18 @@ const WishList = () => {
           "Your WishList"
         )}
       </p>
-      <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center p-6">
-        {renderedWishList}
-      </div>
+      {isLoading && gotWishlistOfUser?.wishList?.length > 0 && (
+        <div className="flex justify-center my-6">
+          <Spinner />
+        </div>
+      )}
+
+      {!isLoading && (
+        <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center p-6">
+          {renderedWishList}
+        </div>
+      )}
+      <HoriLine/>
     </>
   );
 };

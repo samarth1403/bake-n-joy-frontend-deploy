@@ -44,7 +44,6 @@ const HomePage = () => {
   
   return (
     <>
-      <HelmetMeta title={"Cake Website - Home"} />
       <Hero images={imgArray} />
       <HoriLine />
       <PopularProductList />
