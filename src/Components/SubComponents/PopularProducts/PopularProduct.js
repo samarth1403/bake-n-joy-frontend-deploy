@@ -74,7 +74,7 @@ const PopularProduct = ({ shoppingItem }) => {
           className="absolute top-4 right-4 "
           onClick={() => handleAddToWishlist(shoppingItem._id)}
         >
-          <AiFillHeart className="text-3xl text-[#FF0000]" />
+          <AiFillHeart className="text-2xl text-[#FF0000]" />
         </button>
       </div>
     </div>

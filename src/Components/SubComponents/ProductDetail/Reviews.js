@@ -22,10 +22,6 @@ const Reviews = () => {
       toast.error("Give the rating in stars");
       return false;
     }
-    else if(comment === null){
-      toast.error("Give the Comment")
-      return false;
-    }
     else {
       dispatch(rateAProduct({ body: { star, comment, prodId } , Token: Token}));
       setTimeout(()=>{

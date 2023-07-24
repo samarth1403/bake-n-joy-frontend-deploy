@@ -10,7 +10,7 @@ const Layout = () => {
       <Header />
       <div key="mainlayout">
         <ToastContainer
-          position="top-right"
+          position="top-center"
           autoClose={2500}
           hideProgressBar={false}
           newestOnTop={true}
@@ -18,7 +18,7 @@ const Layout = () => {
           rtl={false}
           pauseOnFocusLoss
           draggable
-          theme="dark"
+          theme="colored"
           className="text-xl"
         />
         <Outlet />

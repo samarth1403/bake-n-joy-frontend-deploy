@@ -5,8 +5,8 @@ import Subabout2 from './Subabout2';
 const About = () => {
   return (
     <div className="bg-[#090b2b]">
-      <div className="flex flex-col flex-wrap justify-center items-center m-4">
-        <p className="font-roboto font-bold text-[#fff] text-5xl m-4">
+      <div className="flex flex-col flex-wrap justify-center items-center p-4">
+        <p className="font-roboto font-bold text-[#fff] text-5xl p-4">
           About Us
         </p>
         <div className="flex flex-row flex-wrap justify-center items-start">
@@ -15,7 +15,7 @@ const About = () => {
               style={{
                 background: "linear-gradient(180deg, #FFE77A 0%, #FC9866 100%)",
               }}
-              className="flex flex-col flex-wrap justify-center items-center w-[360px] sm:w-[500px] md:w-[700px] h-auto rounded-[30px] m-8"
+              className="flex flex-col flex-wrap justify-center items-center min-[320px]:w-[300px] sm:w-[500px] md:w-[700px] h-auto rounded-[30px] p-8"
             >
               <p className="font-roboto font-bold text-[#090b2b] text-justify text-lg sm:text-xl m-8 sm:m-12">
                 Welcome to [Cake Vendor's Name], your ultimate destination for
@@ -25,7 +25,7 @@ const About = () => {
                 memorable.
               </p>
             </div>
-            <p className="font-roboto font-bold text-[#FEE77A] text-4xl m-6 sm:m-8">
+            <p className="font-roboto font-bold text-[#FEE77A] text-4xl p-6 sm:p-8">
               Our Story
             </p>
             <div

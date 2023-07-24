@@ -137,7 +137,7 @@ const SingleProductDetails = () => {
                 src={flag === false ? gotProduct?.images[0]?.url : productImage}
                 alt="Cake"
                 zoomType="hover"
-                className="min-[320px]:w-[260px] min-[320px]:h-[260px] sm:w-[360px] sm:h-[360px] sm:w-[400px] sm:h-[400px] rounded-[40px] mb-8"
+                className="min-[320px]:w-[260px] min-[320px]:h-[260px] sm:w-[300px] sm:h-[300px] rounded-[40px] mb-8"
               />
             )}
             {/* <div className="flex flex-row flex-wrap justify-center items-center">

@@ -70,7 +70,7 @@ const ShoppingItem = ({ shoppingItem }) => {
               className="absolute top-4 right-4"
               onClick={() => handleAddToWishlist(shoppingItem?._id)}
             >
-              <AiFillHeart className="text-3xl text-[#FF0000]" />
+              <AiFillHeart className="text-2xl text-[#FF0000]" />
             </button>
           </div>
           <div className="flex flex-row flex-no-wrap justify-between px-2 pt-3 pb-6">
