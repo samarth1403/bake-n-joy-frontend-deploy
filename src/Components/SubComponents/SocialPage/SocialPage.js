@@ -20,30 +20,36 @@ const SocialPage = () => {
       <p className="font-roboto font-bold leading-normal text-[#FFE04E] text-3xl text-center p-6">
         Follow Us On
       </p>
-      <SocialBox className="m-2" onClick={handleClick}>
-        <img
-          src={InstagramC}
-          alt="Instagram Icon"
-          className="w-[50px] h-[50px]"
-        />
-      </SocialBox>
-      <SocialBox className="m-2" onClick={handleClick}>
-        <img
-          src={FacebookC}
-          alt="Facebook Icon"
-          className="w-[50px] h-[50px]"
-        />
-      </SocialBox>
-      <SocialBox className="m-2" onClick={handleClick}>
-        <img
-          src={PinterestC}
-          alt="Pinterest Icon"
-          className="w-[50px] h-[50px]"
-        />
-      </SocialBox>
-      <SocialBox className="m-2" onClick={handleClick}>
-        <img src={YoutubeC} alt="Youtube Icon" className="w-[50px] h-[50px]" />
-      </SocialBox>
+      <div className="flex flex-row justify-center items-center">
+        <SocialBox className="m-2" onClick={handleClick}>
+          <img
+            src={InstagramC}
+            alt="Instagram Icon"
+            className="w-[50px] h-[50px] cursor-pointer"
+          />
+        </SocialBox>
+        <SocialBox className="m-2" onClick={handleClick}>
+          <img
+            src={FacebookC}
+            alt="Facebook Icon"
+            className="w-[50px] h-[50px] cursor-pointer"
+          />
+        </SocialBox>
+        {/* <SocialBox className="m-2" onClick={handleClick}>
+          <img
+            src={PinterestC}
+            alt="Pinterest Icon"
+            className="w-[50px] h-[50px]"
+          />
+        </SocialBox>
+        <SocialBox className="m-2" onClick={handleClick}>
+          <img
+            src={YoutubeC}
+            alt="Youtube Icon"
+            className="w-[50px] h-[50px]"
+          />
+        </SocialBox> */}
+      </div>
       <p className=" font-roboto font-bold leading-normal text-[#FFE04E] text-2xl p-4">
         @SamarthIkkalaki
       </p>
