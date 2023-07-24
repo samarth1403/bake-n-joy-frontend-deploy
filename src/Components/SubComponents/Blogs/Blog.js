@@ -35,7 +35,7 @@ const Blog = () => {
           }}
           className="flex flex-col flex-wrap justify-center items-center w-[360px] sm:w-[500px] h-auto rounded-[30px] m-8"
         >
-          <p className="font-roboto font-bold text-[#0D103C] text-justify text-lg sm:text-xl m-8 sm:m-12">
+          <p className="font-roboto font-bold text-[#090b2b] text-justify text-lg sm:text-xl m-8 sm:m-12">
             {gotBlog?.description}
           </p>
         </div>

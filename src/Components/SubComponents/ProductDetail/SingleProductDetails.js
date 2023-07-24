@@ -161,7 +161,7 @@ const SingleProductDetails = () => {
           </div>
           <div
             style={{
-              background: "linear-gradient(180deg, #C1FFDE 0%, #0D103C 100%)",
+              background: "linear-gradient(180deg, #C1FFDE 0%, #090b2b 100%)",
             }}
             className="flex flex-col flex-wrap min-[320px]:justify-start min-[320px]:items-start sm:justify-start sm:items-start lg:justify-start lg:items-start min-[320px]:w-[260px] sm:w-[550px] p-4 rounded-[75px] my-8"
           >
@@ -177,7 +177,7 @@ const SingleProductDetails = () => {
               </p>
             </div>
             {/* <div className="flex flex-row flex-wrap justify-center items-center">
-            <p className="font-roboto font-bold text-[#0D103C] text-xl mx-8 my-2 ">
+            <p className="font-roboto font-bold text-[#090b2b] text-xl mx-8 my-2 ">
               # {gotProduct?.tags}
             </p>
           </div>

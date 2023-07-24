@@ -88,7 +88,7 @@ const ContactUs = () => {
               className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[280px] sm:w-[360px] lg:w-[450px] rounded-[30px] p-8"
             >
               <Input
-                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+                className="bg-[#090b2b] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
                 id="name"
                 type="text"
                 placeholder="Name"
@@ -103,7 +103,7 @@ const ContactUs = () => {
                 ) : null}
               </div>
               <Input
-                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+                className="bg-[#090b2b] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
                 id="email"
                 type="text"
                 placeholder="Email"
@@ -118,7 +118,7 @@ const ContactUs = () => {
                 ) : null}
               </div>
               <Input
-                className="bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
+                className="bg-[#090b2b] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
                 id="mobile"
                 type="number"
                 placeholder="Phone Number"
@@ -133,7 +133,7 @@ const ContactUs = () => {
                 ) : null}
               </div>
               <textarea
-                className="font-roboto font-[400] text-xl rounded-[15px] bg-[#0D103C] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#fff]
+                className="font-roboto font-[400] text-xl rounded-[15px] bg-[#090b2b] min-[320px]:w-[240px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#fff]
             text-start p-4 m-4"
                 id="comment"
                 type="text"
@@ -150,8 +150,8 @@ const ContactUs = () => {
               </div>
               <button
                 type="submit"
-                style={{ boxShadow: "8px 8px 4px #0D103C" }}
-                className="bg-[#fff] w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 mx-4 mt-4 mb-8 align-left"
+                style={{ boxShadow: "8px 8px 4px #090b2b" }}
+                className="bg-[#fff] w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#090b2b] rounded-[20px]  px-4 mx-4 mt-4 mb-8 align-left"
               >
                 Send
               </button>
@@ -169,33 +169,33 @@ const ContactUs = () => {
             className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[280px] sm:w-[360px] rounded-[30px] p-4"
           >
             <div className="min-[320px]:w-[280px] flex flex-row flex-wrap justify-start items-start">
-              <MdLocationOn className="text-[#0D103C] w-[40px] h-[40px] m-2 mr-4 my-4" />
+              <MdLocationOn className="text-[#090b2b] w-[40px] h-[40px] m-2 mr-4 my-4" />
               <a href="/">
-                <p className="min-[320px]:w-[160px] sm:w-[200px] font-roboto font-bold text-lg text-[#0D103C] my-4 mx-2">
+                <p className="min-[320px]:w-[160px] sm:w-[200px] font-roboto font-bold text-lg text-[#090b2b] my-4 mx-2">
                   9th Floor, Tower 2, Phoenix Fountainhead, 207, Nagar Rd,
                   Clover Park, Viman Nagar, Pune, Maharashtra 411014
                 </p>
               </a>
             </div>
             <div className="min-[320px]:w-[260px] flex flex-row flex-wrap justify-start items-start">
-              <BsFillTelephoneFill className="text-[#0D103C] w-[35px] h-[35px] m-2 mr-4 my-4" />
+              <BsFillTelephoneFill className="text-[#090b2b] w-[35px] h-[35px] m-2 mr-4 my-4" />
               <a href="tel:7499355194">
-                <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#0D103C] my-4 mx-4">
+                <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#090b2b] my-4 mx-4">
                   7499355194
                 </p>
               </a>
             </div>
             <div className="min-[320px]:w-[260px]  flex flex-row flex-wrap justify-start items-start">
-              <FiMail className="text-[#0D103C] w-[40px] h-[40px] m-2 mr-4 my-4" />
+              <FiMail className="text-[#090b2b] w-[40px] h-[40px] m-2 mr-4 my-4" />
               <a href="mailto:samarthikkalaki@gmail.com">
-                <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#0D103C] my-4 mx-2">
+                <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#090b2b] my-4 mx-2">
                   samarthikkalaki@gmail.com
                 </p>
               </a>
             </div>
             <div className="min-[320px]:w-[260px] flex flex-row flex-wrap justify-start items-start">
-              <MdAccessTimeFilled className="text-[#0D103C] w-[40px] h-[40px] m-2 mr-4 my-4" />
-              <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#0D103C] my-4 mx-2">
+              <MdAccessTimeFilled className="text-[#090b2b] w-[40px] h-[40px] m-2 mr-4 my-4" />
+              <p className="min-[320px]:w-[160px] font-roboto font-bold text-lg text-[#090b2b] my-4 mx-2">
                 Monday-Friday : From 10 AM To 8 PM
               </p>
             </div>

@@ -27,7 +27,7 @@ const CakeTypesList = () => {
     return <CakeTypesItem key={index} cakeType={category} />;
   });
   return (
-    <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center min-[320px]:px-8 sm:px-16 sm:pl-24 sm:pr-16 py-4 my-4">
+    <div className="bg-[#090b2b] flex flex-row flex-wrap justify-center items-center min-[320px]:px-8 sm:px-16 sm:pl-24 sm:pr-16 py-4 my-4">
       {renderedCakeTypesList}
     </div>
   );

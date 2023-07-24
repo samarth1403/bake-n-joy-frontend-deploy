@@ -5,7 +5,7 @@ import Cake from '../../../images/cake.jpeg';
 
 const Subabout1 = () => {
   return (
-    <div className="bg-[#0D103C]">
+    <div className="bg-[#090b2b]">
       <div
         style={{
           background:

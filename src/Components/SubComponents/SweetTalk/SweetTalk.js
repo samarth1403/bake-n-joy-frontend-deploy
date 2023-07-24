@@ -47,7 +47,7 @@ export default function App() {
                   }}
                   className="flex flex-row flex-wrap justify-center items-center min-[320px]:w-[260px] sm:w-[500px] h-auto min-[320px]:p-8 sm:p-16 my-12 min-[320px]:rounded-[10px] sm:rounded-[30px] "
                 >
-                  <p className="font-roboto font-bold leading-[150%] text-[#0D103C] min-[320px]:text-lg sm:text-2xl text-center">
+                  <p className="font-roboto font-bold leading-[150%] text-[#090b2b] min-[320px]:text-lg sm:text-2xl text-center">
                     {sweetTalk}
                   </p>
                 </div>

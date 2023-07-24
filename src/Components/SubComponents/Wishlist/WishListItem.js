@@ -45,10 +45,10 @@ const WishListItem = ({ wishlistItem }) => {
       </Link>
 
       <div className="flex flex-col flex-no-wrap">
-        <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 mt-3 m-1">
+        <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 mt-3 m-1">
           {wishlistItem.title}
         </p>
-        <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 m-1">
+        <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 m-1">
           Rs.{wishlistItem.price}/-
         </p>
         <div className="mx-2">

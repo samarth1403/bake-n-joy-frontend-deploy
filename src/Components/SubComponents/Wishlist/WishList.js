@@ -50,7 +50,7 @@ const WishList = () => {
       )}
 
       {!isLoading && (
-        <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center p-6">
+        <div className="bg-[#090b2b] flex flex-row flex-wrap justify-center items-center p-6">
           {renderedWishList}
         </div>
       )}

@@ -46,10 +46,10 @@ const ShoppingItem = ({ shoppingItem }) => {
           className="w-[260px] h-[260px] rounded-t-[33px] mb-2 cursor-pointer"
         />
         <div className="flex flex-col flex-no-wrap">
-          <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 mt-3 m-1">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 mt-3 m-1">
             {shoppingItem?.title}
           </p>
-          <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 m-1">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 m-1">
             Rs.{shoppingItem?.price}/-
           </p>
           <div className="flex flex-row flex-no-wrap justify-between items-center mx-2">

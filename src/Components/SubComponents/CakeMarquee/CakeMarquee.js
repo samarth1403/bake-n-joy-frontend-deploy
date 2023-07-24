@@ -47,7 +47,7 @@ const CakeMarquee = () => {
               autoFill
               pauseOnHover
               gradient
-              gradientColor={[13, 16, 60]}
+              gradientColor={[9,11,43]}
               gradientWidth={100}
             >
               {renderedCakeImagesList}

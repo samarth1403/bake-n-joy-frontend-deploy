@@ -16,12 +16,12 @@ const PincodeCheck = () => {
           Enter Delivary Pincode
         </p>
         <Input
-          className="bg-[#0D103C] text-[#fff] text-bold w-[300px] lg:w-[145px] h-[75px] px-4 m-2"
+          className="bg-[#090b2b] text-[#fff] text-bold w-[300px] lg:w-[145px] h-[75px] px-4 m-2"
           id="pincode"
           type="number"
           placeholder="Pincode"
         />
-        <button className="bg-[#fff] w-[300px] h-[75px] font-roboto font-bold text-[#0D103C] text-2xl rounded-[20px] px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]">
+        <button className="bg-[#fff] w-[300px] h-[75px] font-roboto font-bold text-[#090b2b] text-2xl rounded-[20px] px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#090b2b]">
           Check
         </button>
       </div>

@@ -49,7 +49,7 @@ const ResetPassword = () => {
         className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[250px] sm:w-[360px] sm:w-[400px] rounded-[25px] m-4 pt-6 "
       >
         <Input
-          className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] h-[75px] text-[#fff] px-4 m-4"
+          className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] h-[75px] text-[#fff] px-4 m-4"
           id="password"
           type="password"
           placeholder="Password"
@@ -64,7 +64,7 @@ const ResetPassword = () => {
           ) : null}
         </div>
         {/* <Input
-          className="bg-[#0D103C] w-[300px] sm:w-[360px] h-[75px] text-[#fff] px-4 m-4"
+          className="bg-[#090b2b] w-[300px] sm:w-[360px] h-[75px] text-[#fff] px-4 m-4"
           id="confirm-password"
           type="password"
           placeholder="Confirm Password"
@@ -74,8 +74,8 @@ const ResetPassword = () => {
           // style={{
           //   background: "linear-gradient(90deg, #4DD4FF 0%, #F5F5F5 100%)",
           // }}
-          style={{ boxShadow: "8px 8px 4px #0D103C" }}
-          className="bg-[#fff] min-[320px]:w-[150px] sm:w-[200px] h-[75px] font-roboto font-bold text-[#0D103C] rounded-[20px] text-2xl px-4 mx-4 mt-4 mb-8"
+          style={{ boxShadow: "8px 8px 4px #090b2b" }}
+          className="bg-[#fff] min-[320px]:w-[150px] sm:w-[200px] h-[75px] font-roboto font-bold text-[#090b2b] rounded-[20px] text-2xl px-4 mx-4 mt-4 mb-8"
         >
           Ok
         </button>

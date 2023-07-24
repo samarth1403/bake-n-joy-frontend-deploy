@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <nav>
-      <div className="flex flex-row flex-wrap justify-evenly items-center bg-[#0D103C] max-w-full h-auto mx-auto px-6 py-6 sm:px-6 lg:px-4 ">
+      <div className="flex flex-row flex-wrap justify-evenly items-center bg-[#090b2b] max-w-full h-auto mx-auto px-6 py-6 sm:px-6 lg:px-4 ">
         <div className="flex flex-row flex-wrap min-[320px]:justify-center sm:justify-between items-center w-[500px] h-[80px] min-[320px]:mb-8 sm:mb-0">
           <Link to="/" onClick={() => ScrollToTop()}>
             <Navlink href="/something" className="text-4xl">

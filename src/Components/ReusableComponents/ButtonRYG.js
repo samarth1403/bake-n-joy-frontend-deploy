@@ -4,7 +4,7 @@ import classNames from "classnames";
 const ButtonRYG = ({ children, className, ...rest }) => {
   const finalClass = classNames(
     className,
-    "font-roboto font-bold leading-normal text-[#0D103C]"
+    "font-roboto font-bold leading-normal text-[#090b2b]"
   );
   return (
     <button

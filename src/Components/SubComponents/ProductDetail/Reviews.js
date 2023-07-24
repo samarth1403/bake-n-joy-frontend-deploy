@@ -46,7 +46,7 @@ const Reviews = () => {
             className="bg-[#fff] min-[320px]:w-[280px] sm:w-[300px] h-auto flex flex-col flex-wrap justify-center items-start rounded-[20px] p-4"
             key={index}
           >
-            <p className="font-roboto font-bold text-[#0D103C] text-lg p-2">
+            <p className="font-roboto font-bold text-[#090b2b] text-lg p-2">
               {productReview?.postedBy?.firstName + " " +
                 productReview?.postedBy?.lastName}
             </p>
@@ -61,11 +61,11 @@ const Reviews = () => {
               emptyIcon={<i className="far fa-star"></i>}
               halfIcon={<i className="fa fa-star-half-alt"></i>}
               fullIcon={<i className="fa fa-star"></i>}
-              //   activeColor="#0D103C"
+              //   activeColor="#090b2b"
               activeColor="#ffd700"
               classNames="px-2"
             />
-            <p className="font-roboto font-medium text-[#0D103C] text-lg p-2">
+            <p className="font-roboto font-medium text-[#090b2b] text-lg p-2">
               {productReview?.comment}
             </p>
           </div>
@@ -101,7 +101,7 @@ const Reviews = () => {
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          className="font-roboto font-[400] text-xl rounded-[15px] bg-[#fff] min-[320px]:w-[280px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#0D103C]
+          className="font-roboto font-[400] text-xl rounded-[15px] bg-[#fff] min-[320px]:w-[280px] sm:w-[300px] lg:w-[400px] h-[150px] text-[#090b2b]
             text-start p-4  my-8 "
           id="comment"
           type="text"
@@ -112,7 +112,7 @@ const Reviews = () => {
           style={{
             background: "linear-gradient(180deg, #FFEFEF 0%, #E5FE49 100%)",
           }}
-          className="w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 p-4 my-4 align-left"
+          className="w-[135px] h-[75px] font-roboto font-bold text-2xl text-[#090b2b] rounded-[20px]  px-4 p-4 my-4 align-left"
         >
           Submit
         </button>

@@ -25,7 +25,7 @@ const PopularProductList = () => {
           <Spinner />
         </div>
       ) : (
-        <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center min-[320px]:px-2 sm:px-16 pt-16">
+        <div className="bg-[#090b2b] flex flex-row flex-wrap justify-center items-center min-[320px]:px-2 sm:px-16 pt-16">
           {products?.map((shoppingItem, index) => {
             return (
               shoppingItem.tags === "popular" && (

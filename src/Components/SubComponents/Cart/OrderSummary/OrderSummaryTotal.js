@@ -45,7 +45,7 @@ const OrderSummaryTotal = () => {
           }}
           className="flex flex-col flex-wrap justify-center items-center min-[320px]:w-[300px] md:w-[600px] rounded-[50px]"
         >
-          <p className="font-roboto font-bold text-[#0D103C] text-3xl m-8">
+          <p className="font-roboto font-bold text-[#090b2b] text-3xl m-8">
             Price Details
           </p>
           <div
@@ -55,47 +55,47 @@ const OrderSummaryTotal = () => {
             className="flex flex-row flex-no-wrap justify-between items-center min-[320px]:w-[280px] md:w-[500px] rounded-[50px] p-4"
           >
             <div className="flex flex-col flex-no-wrap justify-start items-start">
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 Sub Total
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 Delivary Charge
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 ------------
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-3xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-3xl m-4">
                 Total Cost
               </p>
             </div>
             <div className="flex flex-col flex-no-wrap justify-start items-start">
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 Rs {totalPrice?.toFixed(2)} /-
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 Free
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-2xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-2xl m-4">
                 ------------
               </p>
-              <p className="font-roboto font-bold text-[#0D103C] text-3xl m-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-3xl m-4">
                 Rs. {totalPrice?.toFixed(2)}/-
               </p>
             </div>
           </div>
-          <p className="font-roboto font-bold text-[#0D103C] text-2xl mx-8 mb-4 mt-8">
+          <p className="font-roboto font-bold text-[#090b2b] text-2xl mx-8 mb-4 mt-8">
             You will save Rs.{" "}
             {(totalPriceWithoutDiscount - totalPrice)?.toFixed(2)}/- on this
             Order
           </p>
           <div className="flex flex-row flex-wrap justify-center items-center m-4">
             <Link to="/shop-page" onClick={() => ScrollToTop()}>
-              <button className="bg-[#fff] w-[225px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-xl px-4 mx-4 mt-2 mb-4 shadow-[6px_6px_2px_#0D103C]">
+              <button className="bg-[#fff] w-[225px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-xl px-4 mx-4 mt-2 mb-4 shadow-[6px_6px_2px_#090b2b]">
                 Continue Shopping
               </button>
             </Link>
             <Link to="/cart-page/contact-details" onClick={() => ScrollToTop()}>
-              <button className="bg-[#84FF58] w-[225px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-2 mb-4 shadow-[6px_6px_2px_#0D103C]">
+              <button className="bg-[#84FF58] w-[225px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-2 mb-4 shadow-[6px_6px_2px_#090b2b]">
                 Checkout
               </button>
             </Link>

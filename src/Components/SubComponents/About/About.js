@@ -4,7 +4,7 @@ import Subabout2 from './Subabout2';
 
 const About = () => {
   return (
-    <div className="bg-[#0D103C]">
+    <div className="bg-[#090b2b]">
       <div className="flex flex-col flex-wrap justify-center items-center m-4">
         <p className="font-roboto font-bold text-[#fff] text-5xl m-4">
           About Us
@@ -17,7 +17,7 @@ const About = () => {
               }}
               className="flex flex-col flex-wrap justify-center items-center w-[360px] sm:w-[500px] md:w-[700px] h-auto rounded-[30px] m-8"
             >
-              <p className="font-roboto font-bold text-[#0D103C] text-justify text-lg sm:text-xl m-8 sm:m-12">
+              <p className="font-roboto font-bold text-[#090b2b] text-justify text-lg sm:text-xl m-8 sm:m-12">
                 Welcome to [Cake Vendor's Name], your ultimate destination for
                 all things sweet and delicious! We are a passionate team of
                 skilled bakers and confectionery artists dedicated to creating
@@ -34,7 +34,7 @@ const About = () => {
               }}
               className="flex flex-col flex-wrap justify-center items-center w-[360px] sm:w-[500px] md:w-[700px] h-auto rounded-[30px] m-8"
             >
-              <p className="font-roboto font-bold text-[#0D103C] text-justify text-lg sm:text-xl m-8 sm:m-12">
+              <p className="font-roboto font-bold text-[#090b2b] text-justify text-lg sm:text-xl m-8 sm:m-12">
                 With a heart full of dreams and a determination to turn our
                 passion into a business, we started a small cake venture from
                 our home kitchen. As our delectable creations began to captivate

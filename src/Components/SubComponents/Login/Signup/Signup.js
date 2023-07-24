@@ -68,7 +68,7 @@ const Signup = () => {
           className="flex flex-col flex-no-wrap justify-center items-center min-[320px]:w-[280px] sm:w-[360px] lg:w-[500px] rounded-[25px] pt-6 "
         >
           <Input
-            className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+            className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
             id="firstName"
             type="text"
             placeholder="First Name"
@@ -83,7 +83,7 @@ const Signup = () => {
             ) : null}
           </div>
           <Input
-            className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+            className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
             id="lastName"
             type="text"
             placeholder="Last Name"
@@ -99,7 +99,7 @@ const Signup = () => {
           </div>
 
           <Input
-            className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
+            className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4  m-4"
             id="email"
             type="text"
             placeholder="Email"
@@ -114,7 +114,7 @@ const Signup = () => {
             ) : null}
           </div>
           <Input
-            className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
+            className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
             id="mobile"
             type="number"
             placeholder="Phone Number"
@@ -129,7 +129,7 @@ const Signup = () => {
             ) : null}
           </div>
           <Input
-            className="bg-[#0D103C] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
+            className="bg-[#090b2b] min-[320px]:w-[250px] sm:w-[300px] lg:w-[400px] h-[75px] text-[#fff] px-4 m-4"
             id="password"
             type="password"
             placeholder="Password"
@@ -146,22 +146,22 @@ const Signup = () => {
           <div className="flex flex-row flex-no-wrap justify-between items-center">
             <button
               onClick={() => formik.resetForm()}
-              style={{ boxShadow: "8px 8px 4px #0D103C" }}
-              className="bg-[#fff] w-[105px] h-[75px] font-roboto font-bold text-2xl text-[#0D103C] rounded-[20px]  px-4 mx-4 mt-4 mb-8"
+              style={{ boxShadow: "8px 8px 4px #090b2b" }}
+              className="bg-[#fff] w-[105px] h-[75px] font-roboto font-bold text-2xl text-[#090b2b] rounded-[20px]  px-4 mx-4 mt-4 mb-8"
             >
               Reset
             </button>
             <button
               type="submit"
-              style={{ boxShadow: "8px 8px 4px #0D103C" }}
-              className="bg-[#fff] w-[105px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-8"
+              style={{ boxShadow: "8px 8px 4px #090b2b" }}
+              className="bg-[#fff] w-[105px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-8"
             >
               Sign Up
             </button>
           </div>
           {/* <button
-          style={{ boxShadow: "8px 8px 4px #0D103C" }}
-          className="bg-[#fff] w-[305px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mb-8"
+          style={{ boxShadow: "8px 8px 4px #090b2b" }}
+          className="bg-[#fff] w-[305px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mb-8"
         >
           Sign Up With Google
         </button> */}

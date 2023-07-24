@@ -40,7 +40,7 @@ const PopularProduct = ({ shoppingItem }) => {
       </Link>
 
       <div className="flex flex-col flex-no-wrap">
-        <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 mt-3 m-1">
+        <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 mt-3 m-1">
           {shoppingItem.title}
         </p>
         {/* <div className="flex flex-row flex-no-wrap justify-between px-2 pt-3 pb-6">
@@ -53,7 +53,7 @@ const PopularProduct = ({ shoppingItem }) => {
         </div> */}
       </div>
       <div className="flex flex-row flex-no-wrap justify-between items-center">
-        <p className="font-roboto font-bold text-[#0D103C] text-lg px-2 m-2">
+        <p className="font-roboto font-bold text-[#090b2b] text-lg px-2 m-2">
           Rs.{shoppingItem.price}/-
         </p>
         <ReactStars

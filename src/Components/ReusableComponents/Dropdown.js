@@ -45,11 +45,11 @@ const Dropdown = ({category,}) => {
           style={{
             background: "linear-gradient(90deg, #53FFB8 0%, #ACE7FF 100%)",
           }}
-          className="inline-flex justify-center gap-x-1.5 text-lg font-roboto font-bold text-[#0D103C] text-center rounded-[20px] px-6 py-4"
+          className="inline-flex justify-center gap-x-1.5 text-lg font-roboto font-bold text-[#090b2b] text-center rounded-[20px] px-6 py-4"
         >
           {category}
           <ChevronDownIcon
-            className="h-8 w-8 text-[#0D103C]"
+            className="h-8 w-8 text-[#090b2b]"
             aria-hidden="true"
           />
         </Menu.Button>
@@ -73,7 +73,7 @@ const Dropdown = ({category,}) => {
                     <div
                      onClick={(e)=>setSubCategory(item)}
                       className={classNames(
-                        active ? "text-[#0D103C] font-bold cursor-pointer" : "text-gray-700",
+                        active ? "text-[#090b2b] font-bold cursor-pointer" : "text-gray-700",
                         "block px-6 py-2 text-lg text-left"
                       )}
                     >

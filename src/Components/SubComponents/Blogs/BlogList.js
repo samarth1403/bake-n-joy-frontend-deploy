@@ -35,7 +35,7 @@ const BlogList = () => {
       <p className="leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] f text-5xl m-4">
         All Blogs
       </p>
-      <div className="bg-[#0D103C] flex flex-row flex-wrap justify-center items-center p-6">
+      <div className="bg-[#090b2b] flex flex-row flex-wrap justify-center items-center p-6">
         {renderedShoppingList}
       </div>
     </>

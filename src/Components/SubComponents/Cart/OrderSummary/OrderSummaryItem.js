@@ -56,11 +56,11 @@ const OrderSummaryItem = ({ productInCart }) => {
         className="w-[230px] h-[230px] rounded-[30px] mt-2 mb-2"
       />
       <div className="flex flex-col flex-wrap justify-center items-start m-2">
-        <p className="font-roboto font-bold text-[#0D103C] text-xl mx-4">
+        <p className="font-roboto font-bold text-[#090b2b] text-xl mx-4">
           {productInCart?.productId?.title}
         </p>
         <div className="flex flex-row flex-wrap justify-start items-center mx-4 my-2">
-          <p className="font-roboto font-bold text-[#0D103C] text-xl">
+          <p className="font-roboto font-bold text-[#090b2b] text-xl">
             Quantity :
           </p>
           <div className="flex flex-row">
@@ -87,26 +87,26 @@ const OrderSummaryItem = ({ productInCart }) => {
           </div>
         </div>
         <div className="flex flex-col justify-center items-start m-4">
-          <p className="font-roboto font-bold text-[#0D103C] text-lg">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg">
             Color : {productInCart?.color?.colorName}
           </p>
-          <p className="font-roboto font-bold text-[#0D103C] text-lg">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg">
             Weight : {productInCart?.weight} Kg
           </p>
-          <p className="font-roboto font-bold text-[#0D103C] text-lg">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg">
             Eggless : {productInCart?.veg === true ? "True" : "False"}
           </p>
-          <p className="font-roboto font-bold text-[#0D103C] text-lg">
+          <p className="font-roboto font-bold text-[#090b2b] text-lg">
             Shape : {productInCart?.shape}
           </p>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <p className="font-roboto font-bold text-[#0D103C] text-2xl mb-4">
+        <p className="font-roboto font-bold text-[#090b2b] text-2xl mb-4">
           Rs. {productInCart?.price * productInCart?.weight * quantityFromCart}
           /-
         </p>
-        <p className="font-roboto font-bold text-[#0D103C] text-xl line-through mb-4">
+        <p className="font-roboto font-bold text-[#090b2b] text-xl line-through mb-4">
           Rs.{" "}
           {(
             productInCart?.price * productInCart?.weight * quantityFromCart +
@@ -116,12 +116,12 @@ const OrderSummaryItem = ({ productInCart }) => {
               0.1
           ).toFixed(2)}
         </p>
-        <p className="font-roboto font-bold text-[#0D103C] text-lg mb-4">
+        <p className="font-roboto font-bold text-[#090b2b] text-lg mb-4">
           (10 % Off)
         </p>
         <button
           onClick={() => handleDeleteProductFromCart(productInCart?._id)}
-          className="bg-[#0D103C] font-roboto font-bold text-[#fff] text-xl px-4 py-2 mx-4 mt-8 mb-4 rounded-[10px]"
+          className="bg-[#090b2b] font-roboto font-bold text-[#fff] text-xl px-4 py-2 mx-4 mt-8 mb-4 rounded-[10px]"
         >
           Remove
         </button>

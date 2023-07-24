@@ -43,7 +43,7 @@ const ShippingDetails = () => {
     },
   });
   return (
-    <div className="bg-[#0D103C]">
+    <div className="bg-[#090b2b]">
       <div className="flex flex-col flex-wrap justify-center items-center">
         <p className="text-[#fff] font-roboto font-bold text-3xl p-8">
           2. Shipping Details
@@ -149,7 +149,7 @@ const ShippingDetails = () => {
             </div>
             <button
               type="submit"
-              className="bg-[#84FF58] min-[320px]:w-[260px] sm:w-[300px] h-[75px] text-[#0D103C] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#0D103C]"
+              className="bg-[#84FF58] min-[320px]:w-[260px] sm:w-[300px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#090b2b]"
             >
               Proceed to Pay
             </button>
