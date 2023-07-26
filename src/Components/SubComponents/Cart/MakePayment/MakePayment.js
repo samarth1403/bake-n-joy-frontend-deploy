@@ -62,7 +62,6 @@ const MakePayment = () => {
 
   useEffect(()=>{
     if(createdOrder && res.success){
-      setIsLoadingRazorpay(false);
       dispatch(emptyCart({Token:Token}));
       navigate("/cart-page/congratulation");
       ScrollToTop();
@@ -149,7 +148,6 @@ const MakePayment = () => {
 
   const handleClick = () => {
     ScrollToTop();
-    console.log(isLoadingRazorpay);
     displayRazorpay();
   }
 
