@@ -5,7 +5,6 @@ import ContactUs from '../Components/SubComponents/ContactUs/ContactUs';
 const ContactUsPage = () => {
   return (
     <>
-      <HelmetMeta title={"Cake Website - Contact Us"} />
       <ContactUs />
      <HoriLine/>
     </>

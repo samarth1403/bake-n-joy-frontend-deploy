@@ -19,6 +19,7 @@ import Spinner from "../../../ReusableComponents/Spinner";
 const MakePayment = () => {
   const [totalCost, setTotalCost] = useState();
   const [orderedProducts, setOrderedProducts] = useState();
+  const [loading , setLoading] = useState(false);
   const navigate = useNavigate()
 
   const { contactInfo, shippingInfo, totalPrice , isLoading} = useSelector((state) => {
@@ -148,6 +149,7 @@ const MakePayment = () => {
 
   const handleClick = () => {
     ScrollToTop();
+    setLoading(true);
     displayRazorpay();
   }
 
@@ -191,38 +193,45 @@ const MakePayment = () => {
   return (
     <>
       <div className="flex flex-row flex-wrap justify-center items-center">
-        <div
-          style={{
-            background:
-              "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C58AFF 0.02%, #E1C6FC 100%)",
-          }}
-          className="min-[320px]:w-[260px] sm:w-[500px] md:w-[600px] rounded-[50px] p-4 p-6"
-        >
-          <p className="font-roboto font-bold text-[#090b2b] text-3xl text-left p-6">
-            Order Summary
-          </p>
-          {renderedOrderSummaryList}
-          <div className="flex flex-col flex-no-wrap justify-center items-center mx-4 p-4">
-            <p className="font-roboto font-bold text-[#090b2b] text-xl text-center m-4 ">
-              -----------------------------------------------------------------------
-            </p>
-            <div className="flex flex-row flex-no-wrap justify-center items-center">
-              <p className="font-roboto font-bold text-[#090b2b] text-3xl mr-16 sm:mr-24 m-2 ">
-                Total Cost
-              </p>
-              <p className="font-roboto font-bold text-[#090b2b] text-3xl ml-16 sm:ml-24 m-2">
-                Rs {totalCost} /-
-              </p>
-            </div>
-            <button
-              onClick={handleClick}
-              className="bg-[#84FF58] min-[320px]:w-[240px] sm:w-[300px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#090b2b]"
-            >
-              Proceed to Pay
-            </button>
-            <Link to="/cart-page/congratulation"></Link>
+        {loading && (
+          <div className="flex justify-center my-8">
+            <Spinner />
           </div>
-        </div>
+        )}
+        {!loading && (
+          <div
+            style={{
+              background:
+                "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.76) 0.01%, #C58AFF 0.02%, #E1C6FC 100%)",
+            }}
+            className="min-[320px]:w-[260px] sm:w-[500px] md:w-[600px] rounded-[50px] p-4 p-6"
+          >
+            <p className="font-roboto font-bold text-[#090b2b] text-3xl text-left p-6">
+              Order Summary
+            </p>
+            {renderedOrderSummaryList}
+            <div className="flex flex-col flex-no-wrap justify-center items-center mx-4 p-4">
+              <p className="font-roboto font-bold text-[#090b2b] text-xl text-center m-4 ">
+                -----------------------------------------------------------------------
+              </p>
+              <div className="flex flex-row flex-no-wrap justify-center items-center">
+                <p className="font-roboto font-bold text-[#090b2b] text-3xl mr-16 sm:mr-24 m-2 ">
+                  Total Cost
+                </p>
+                <p className="font-roboto font-bold text-[#090b2b] text-3xl ml-16 sm:ml-24 m-2">
+                  Rs {totalCost} /-
+                </p>
+              </div>
+              <button
+                onClick={handleClick}
+                className="bg-[#84FF58] min-[320px]:w-[240px] sm:w-[300px] h-[75px] text-[#090b2b] rounded-[20px] font-roboto font-bold text-2xl px-4 mx-4 mt-4 mb-6 shadow-[6px_6px_2px_#090b2b]"
+              >
+                Proceed to Pay
+              </button>
+              <Link to="/cart-page/congratulation"></Link>
+            </div>
+          </div>
+        )}
       </div>
       <HoriLine />
     </>
