@@ -145,6 +145,7 @@ const Signup = () => {
           </div>
           <div className="flex flex-row flex-no-wrap justify-between items-center">
             <button
+              type = "button"
               onClick={() => formik.resetForm()}
               style={{ boxShadow: "8px 8px 4px #090b2b" }}
               className="bg-[#fff] w-[105px] h-[75px] font-roboto font-bold text-2xl text-[#090b2b] rounded-[20px]  px-4 mx-4 mt-4 mb-8"
